@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{cleveref}
+\usepackage{siunitx}
+% \usepackage{tabular}
+
+\begin{document}
+
+\title{Generalised Vicsek model for two species with parametrised alignment rules}
+\author{Elliot Marsden}
+\maketitle
+
+\section{Description of original Vicsek model}
+
+\section{Two-species extension}
+
+Before introducing a second species into the model, we first extend the possible alignment rules from one to three. In the classic Vicsek model, particles within each other's sphere of influence have a positive alignment effect on each other -- the particle's velocity aligns with those surrounding it. We could instead have an anti-alignment rule, where particles align opposite to the surrounding average velocity. We could also have a null interaction, where no alignment occurs at all. 
+
+The first of these two new cases -- anti-alignment, is not interesting in the classic Vicsek model. This is because when two particles meet, they will constantly flip their velocities in subsequent time-steps. The second of these two new cases is trivially not interesting, since there is no collective motion whatsoever.
+
+In this variant of the Vicsek model, we introduce two species of particle into the system, $A$ and $B$. There are now four types of interaction occuring in the system -- $AA$, $AB$, $AB$, $BB$. One of the $AB$ and $BA$ terms can now be of the anti-alignment form described above, and the flickering behaviour will no longer be present. Another term can be of the aligning type, to introduce some term contributing to flocking. The remainder could potentially be a null interaction, and interesting behaviour still observed. There are therefore now several potentially interesting variants of the Vicsek model with two species, parametrised by a 2x2 matrix representing the mutual interactions between the species,
+
+\begin{equation}
+  \begin{pmatrix}
+    \sigma_\mathrm{AA} & \sigma_\mathrm{AB}\\
+    \sigma_\mathrm{BA} & \sigma_\mathrm{BB}
+  \end{pmatrix}  
+\end{equation}
+
+\section{Constraining interesting variants}
+
+Some restrictions can be placed on the $3^4$ models allowed in principle by this extensions, described as follows:
+
+\begin{itemize}
+  \item There must be at least one $\sigma=+1$, to allow for flocking behaviour for some set of parameters
+  \item There must be at least one off-diagonal term, $\sigma_ij=-1$, as we want to study disruption of the flocking behaviour
+  \item The diagonal terms, $\sigma_ii \ne -1$, as this would result in flickering behaviour
+  \item Many variants are symmetric duplicates of another, \emph{e.g.} (1, -1, 1, 1) and (1, 1, -1, 1).
+\end{itemize}
+
+\end{document}
