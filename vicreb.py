@@ -5,7 +5,7 @@ with its neighbours, with a distinct rule for each 4 combinations of species
 'A' and species 'B'.
 '''
 
-from __future__ import print_function
+
 import argparse
 import numpy as np
 import scipy.stats
