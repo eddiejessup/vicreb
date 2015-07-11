@@ -1,12 +1,11 @@
 import numpy as np
-import matplotlib.pyplot as pp
 import vtk
 from vtk.util import numpy_support
-import utils
 import butils
-import argparse
 import os
 import time
+import sys
+
 
 def vis(dyns):
     dirname = os.path.dirname(os.path.commonprefix(dyns))
@@ -83,9 +82,4 @@ def vis(dyns):
     iren.Start()
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Visualise porous states using VTK')
-    parser.add_argument('dyns', nargs='*',
-        help='npz files containing dynamic states')
-    args = parser.parse_args()
-
-    vis(args.dyns)
+    vis(sys.argv[1:])
